@@ -21,6 +21,9 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   line-height: 1.6;
+  background-color: aliceblue;
+  
+  
 }
 
 /* Ensure React root fills screen */

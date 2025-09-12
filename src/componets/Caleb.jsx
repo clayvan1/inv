@@ -6,6 +6,7 @@ import calebImg2 from "../assets/caleb 1.jpg";
 import calebImg3 from "../assets/caleb 2.jpg";
 import calebImg4 from "../assets/caleb3.jpg";
 import calebImg5 from "../assets/caleb 4.jpg";
+import balloons from "../assets/ballons-5288384_1280.png";
 import TextType from "./TextType";
 import "./Invitation.css";
 
@@ -24,7 +25,6 @@ const Invitation = () => {
     fade: true,
   };
 
-  // animation variants for columns
   const fadeUp = {
     hidden: { opacity: 0, y: 50 },
     visible: (i) => ({
@@ -36,36 +36,45 @@ const Invitation = () => {
 
   return (
     <div className="invitation-container">
-      {/* Background Carousel */}
-      <Slider {...settings} className="background-slider">
-        {images.map((img, index) => (
-          <div key={index} className="slide">
-            <img src={img} alt={`slide-${index}`} />
-          </div>
-        ))}
-      </Slider>
+      {/* 🎈 Balloon Background */}
+      <div
+        className="balloon-background"
+        style={{ backgroundImage: `url(${balloons})` }}
+      />
 
-      {/* Overlay */}
-      <div className="overlay">
-        {/* Typing Effect with fade-up */}
-        <motion.div
-          initial={{ opacity: 0, y: -40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="typing-wrapper"
-        >
-          <TextType
-            text={[
-              "You are welcome to come and Join us Celebrate  35 years of Hardwork and Excellence."
-            ]}
-            typingSpeed={120}
-            pauseDuration={1200}
-            showCursor={true}
-            cursorCharacter="|"
-          />
-        </motion.div>
+      <div className="invitation-content">
+        {/* TOP: Slider */}
+        <div className="slider-wrapper top-slider">
+          <Slider {...settings} className="background-slider">
+            {images.map((img, index) => (
+              <div key={index} className="slide">
+                <img src={img} alt={`slide-${index}`} />
+              </div>
+            ))}
+          </Slider>
+        </div>
 
-        {/* Bottom Section with 3 Columns */}
+        {/* MIDDLE: Typing Text in its own box */}
+        <div className="typing-container">
+          <motion.div
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="typing-wrapper"
+          >
+            <TextType
+              text={[
+                "You are warmly invited to join us in celebrating 35 years of dedication, hard work, and excellence."
+              ]}
+              typingSpeed={120}
+              pauseDuration={1200}
+              showCursor={true}
+              cursorCharacter="|"
+            />
+          </motion.div>
+        </div>
+
+        {/* BOTTOM: Invitation Details */}
         <div className="invitation-bottom">
           {[
             <p><strong>📅 Date:</strong> 10/10/2025</p>,

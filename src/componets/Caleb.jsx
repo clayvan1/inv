@@ -6,7 +6,7 @@ import calebImg2 from "../assets/caleb 1.jpg";
 import calebImg3 from "../assets/caleb 2.jpg";
 import calebImg4 from "../assets/caleb3.jpg";
 import calebImg5 from "../assets/caleb 4.jpg";
-import balloons from "../assets/ballons-5288384_1280.png";
+import balloons from "../assets/ballon3.png";
 import TextType from "./TextType";
 import "./Invitation.css";
 

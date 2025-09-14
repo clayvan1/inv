@@ -6,7 +6,7 @@ import calebImg2 from "../assets/caleb 1.jpg";
 import calebImg3 from "../assets/caleb 2.jpg";
 import calebImg4 from "../assets/caleb3.jpg";
 import calebImg5 from "../assets/caleb 4.jpg";
-import balloons from "../assets/ballon5.png";
+import balloons from "../assets/ballon6.png";
 import TextType from "./TextType";
 import "./Invitation.css";
 
@@ -70,6 +70,7 @@ const Invitation = () => {
               pauseDuration={1200}
               showCursor={true}
               cursorCharacter="|"
+               textColors={["#FFD700"]}
             />
           </motion.div>
         </div>

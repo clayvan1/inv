@@ -7,6 +7,7 @@ import calebImg3 from "../assets/caleb 2.jpg";
 import calebImg4 from "../assets/caleb3.jpg";
 import calebImg5 from "../assets/caleb 4.jpg";
 import balloons from "../assets/ballon9.png";
+import calebMusic from "../assets/calebm.mp3"; // ✅ import your music file
 import TextType from "./TextType";
 import "./Invitation.css";
 
@@ -36,6 +37,9 @@ const Invitation = () => {
 
   return (
     <div className="invitation-container">
+      {/* 🎵 Background Music (Autoplay + Loop) */}
+      <audio src={calebMusic} autoPlay loop hidden />
+
       {/* 🎈 Balloon Background */}
       <div
         className="balloon-background"
@@ -70,7 +74,7 @@ const Invitation = () => {
               pauseDuration={1200}
               showCursor={true}
               cursorCharacter="|"
-               textColors={["#FFD700"]}
+              textColors={["#FFD700"]}
             />
           </motion.div>
         </div>

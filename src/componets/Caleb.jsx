@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Slider from "react-slick";
 import calebImg1 from "../assets/caleb 5.jpg";
@@ -7,12 +7,27 @@ import calebImg3 from "../assets/caleb 2.jpg";
 import calebImg4 from "../assets/caleb3.jpg";
 import calebImg5 from "../assets/caleb 4.jpg";
 import balloons from "../assets/ballon9.png";
-import calebMusic from "../assets/calebm.mp3"; // ✅ import your music file
+import calebMusic from "../assets/calebm.mp3"; // ✅ music
 import TextType from "./TextType";
 import "./Invitation.css";
 
 const Invitation = () => {
   const images = [calebImg1, calebImg2, calebImg3, calebImg4, calebImg5];
+  const audioRef = useRef(null);
+  const [showPlayButton, setShowPlayButton] = useState(false);
+
+  useEffect(() => {
+    const tryPlay = async () => {
+      try {
+        await audioRef.current.play();
+        audioRef.current.loop = true;
+      } catch (err) {
+        // Autoplay blocked, show play button
+        setShowPlayButton(true);
+      }
+    };
+    tryPlay();
+  }, []);
 
   const settings = {
     dots: true,
@@ -37,8 +52,23 @@ const Invitation = () => {
 
   return (
     <div className="invitation-container">
-      {/* 🎵 Background Music (Autoplay + Loop) */}
-      <audio src={calebMusic} autoPlay loop hidden />
+      {/* 🎵 Background Music */}
+      <audio ref={audioRef} src={calebMusic} />
+
+      {/* Show button only if autoplay was blocked */}
+      {showPlayButton && (
+        <div className="play-overlay">
+          <button
+            className="play-button"
+            onClick={() => {
+              audioRef.current.play();
+              setShowPlayButton(false);
+            }}
+          >
+            ▶ Tap to Play Music
+          </button>
+        </div>
+      )}
 
       {/* 🎈 Balloon Background */}
       <div
@@ -58,7 +88,7 @@ const Invitation = () => {
           </Slider>
         </div>
 
-        {/* MIDDLE: Typing Text in its own box */}
+        {/* MIDDLE: Typing Text */}
         <div className="typing-container">
           <motion.div
             initial={{ opacity: 0, y: -40 }}

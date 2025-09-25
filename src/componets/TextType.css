@@ -17,3 +17,8 @@
    /* Optional */
    font-weight: bold;
 }
+@media screen and (max-width: 300px) {
+  .text-type__content {
+    font-size: 20px; /* Adjust size for smaller screens */
+  }
+}

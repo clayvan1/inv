@@ -13,9 +13,7 @@
   display: none;
 }
 .text-type__content {
-  background: linear-gradient(90deg, #FFD700, #FFB700, #FFD700);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
+  font-size: 27px; /* Change this to any size you want */
+   /* Optional */
+   font-weight: bold;
 }

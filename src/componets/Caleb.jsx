@@ -104,7 +104,8 @@ const Invitation = () => {
               pauseDuration={1200}
               showCursor={true}
               cursorCharacter="|"
-              textColors={["#FFD700"]}
+              
+              fonstSizes={["1.8rem"]}
             />
           </motion.div>
         </div>
